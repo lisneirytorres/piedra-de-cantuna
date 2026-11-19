@@ -11,9 +11,10 @@ Registro único de los recursos del juego. Los créditos del juego (`src/data/cr
 | Escenarios (`src/components/town_backdrop.gd`) | Lisneiry Torres | Original del equipo |
 | Objetos, proyectiles y gemas (`src/actors/`) | Lisneiry Torres | Original del equipo |
 | Guion y diálogos (`src/data/dialogue/`, `src/data/epilogue/`) | Lisneiry Torres | Original del equipo |
+| Efectos de sonido (`src/components/sound_effect.gd`, `src/data/sfx/`) | Lisneiry Torres | Original del equipo |
 
-Todo el arte actual está dibujado por código en tiempo de ejecución: el juego no incluye imágenes ni audio
-de terceros.
+Todo el arte y el sonido actuales se generan por código en tiempo de ejecución: el juego no incluye
+imágenes ni audio de terceros.
 
 ## Recursos de terceros
 
