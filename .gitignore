@@ -1,0 +1,12 @@
+# Godot: caché del editor (no se sube, según el Anexo de las bases)
+.godot/
+
+# Builds locales (el .zip de Windows se sube solo al release)
+build/
+
+# Temporales
+*.tmp
+
+# Configuración personal de Claude Code
+CLAUDE.local.md
+.claude/settings.local.json
