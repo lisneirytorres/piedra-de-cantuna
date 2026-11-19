@@ -1,0 +1,15 @@
+# Normaliza finales de línea (evita conflictos entre Windows y Mac/Linux)
+* text=auto eol=lf
+
+# Binarios: Git no debe tocarlos ni intentar diffs de texto
+*.png binary
+*.jpg binary
+*.webp binary
+*.ogg binary
+*.wav binary
+*.ttf binary
+*.otf binary
+*.pdf binary
+*.wasm binary
+*.pck binary
+*.zip binary
