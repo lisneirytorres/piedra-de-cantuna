@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3]
+
+[ext_resource type="Script" path="res://src/dialogue/dialogue_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"act_3_devil_dawn_failed"
+speakers = PackedStringArray("El Diablo", "")
+lines = PackedStringArray("¡El atrio está completo! Tu alma es mía, Cantuña...", "Pero esa no es la historia que cuentan en Quito. La noche vuelve a empezar.")

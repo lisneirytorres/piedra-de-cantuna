@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3]
+
+[ext_resource type="Script" path="res://src/dialogue/dialogue_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"act_3_foreman_stone_ready"
+speakers = PackedStringArray("", "Capataz")
+lines = PackedStringArray("¡La última piedra brilla frente a la iglesia! Tómala antes de que la coloquen.", "¡Nadie toca la piedra del amo!")

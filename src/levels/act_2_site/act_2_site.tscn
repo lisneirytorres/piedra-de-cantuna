@@ -1,0 +1,149 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/levels/act_2_site/act_2_site.gd" id="1_act_2_site"]
+[ext_resource type="Resource" path="res://src/data/dialogue/act_2_narrator_intro.tres" id="2_act_2_narrat"]
+[ext_resource type="Resource" path="res://src/data/music/site.tres" id="3_site"]
+[ext_resource type="Resource" path="res://src/data/sfx/stone_place.tres" id="4_stone_place"]
+[ext_resource type="Resource" path="res://src/data/dialogue/act_2_cantuna_dusk.tres" id="5_act_2_cantun"]
+[ext_resource type="Resource" path="res://src/data/dialogue/act_2_devil_pact.tres" id="6_act_2_devil_"]
+[ext_resource type="Resource" path="res://src/data/dialogue/act_2_devil_bargained.tres" id="7_act_2_devil_"]
+[ext_resource type="Resource" path="res://src/data/dialogue/act_2_devil_plain.tres" id="8_act_2_devil_"]
+[ext_resource type="Script" path="res://src/components/town_backdrop.gd" id="9_town_backdro"]
+[ext_resource type="PackedScene" path="res://src/actors/player/player.tscn" id="10_player"]
+[ext_resource type="Resource" path="res://src/data/appearances/devil.tres" id="11_devil"]
+[ext_resource type="PackedScene" path="res://src/actors/npcs/npc.tscn" id="12_npc"]
+[ext_resource type="PackedScene" path="res://src/actors/props/prop.tscn" id="13_prop"]
+[ext_resource type="PackedScene" path="res://src/ui/hud/hud.tscn" id="14_hud"]
+[ext_resource type="PackedScene" path="res://src/dialogue/dialogue_box.tscn" id="15_dialogue_box"]
+[ext_resource type="PackedScene" path="res://src/ui/pause_menu/pause_menu.tscn" id="16_pause_menu"]
+
+[node name="Act2Site" type="Node2D" node_paths=PackedStringArray("player", "hud", "stones_root", "slots_root", "devil")]
+script = ExtResource("1_act_2_site")
+bounds = Rect2(12, 140, 936, 390)
+player = NodePath("World/Player")
+hud = NodePath("Hud")
+intro_dialogue = ExtResource("2_act_2_narrat")
+music = ExtResource("3_site")
+next_scene = "res://src/levels/act_3_night/act_3_night.tscn"
+stones_root = NodePath("World/Stones")
+slots_root = NodePath("World/Slots")
+devil = NodePath("World/Devil")
+place_sound = ExtResource("4_stone_place")
+dusk = ExtResource("5_act_2_cantun")
+devil_pact = ExtResource("6_act_2_devil_")
+devil_bargained = ExtResource("7_act_2_devil_")
+devil_plain = ExtResource("8_act_2_devil_")
+objective_format = "Piedras del atrio: %d/%d"
+objective_meet_devil = "Escucha al extraño visitante"
+message_need_stone = "Primero trae una piedra"
+message_already_carrying = "Ya cargas una piedra"
+message_wrong_shape = "Esta piedra no encaja aquí: busca su forma"
+message_stone_placed = "¡Encaja perfecta!"
+
+[node name="Backdrop" type="Node2D" parent="."]
+script = ExtResource("9_town_backdro")
+floor_style = 1
+floor_color = Color(0.4784, 0.4157, 0.3333, 1)
+floor_accent_color = Color(0.5608, 0.4902, 0.3882, 1)
+mortar_color = Color(0.3608, 0.3098, 0.251, 1)
+is_church_unfinished = true
+has_fountain = false
+lantern_positions = PackedVector2Array()
+church_color = Color(0.7961, 0.749, 0.6824, 1)
+church_shadow_color = Color(0.5922, 0.5451, 0.4784, 1)
+
+[node name="World" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="World" instance=ExtResource("10_player")]
+position = Vector2(480, 480)
+
+[node name="Devil" parent="World" instance=ExtResource("12_npc")]
+position = Vector2(480, 270)
+display_name = "El Diablo"
+appearance = ExtResource("11_devil")
+dialogue = ExtResource("6_act_2_devil_")
+scale = Vector2(1.3, 1.3)
+
+[node name="Slots" type="Node2D" parent="World"]
+
+[node name="Slot1" parent="World/Slots" instance=ExtResource("13_prop")]
+position = Vector2(355, 172)
+kind = 1
+stone_shape = 0
+prompt_text = "Colocar"
+
+[node name="Slot2" parent="World/Slots" instance=ExtResource("13_prop")]
+position = Vector2(405, 172)
+kind = 1
+stone_shape = 1
+prompt_text = "Colocar"
+
+[node name="Slot3" parent="World/Slots" instance=ExtResource("13_prop")]
+position = Vector2(455, 172)
+kind = 1
+stone_shape = 2
+prompt_text = "Colocar"
+
+[node name="Slot4" parent="World/Slots" instance=ExtResource("13_prop")]
+position = Vector2(505, 172)
+kind = 1
+stone_shape = 2
+prompt_text = "Colocar"
+
+[node name="Slot5" parent="World/Slots" instance=ExtResource("13_prop")]
+position = Vector2(555, 172)
+kind = 1
+stone_shape = 1
+prompt_text = "Colocar"
+
+[node name="Slot6" parent="World/Slots" instance=ExtResource("13_prop")]
+position = Vector2(605, 172)
+kind = 1
+stone_shape = 0
+prompt_text = "Colocar"
+
+[node name="Stones" type="Node2D" parent="World"]
+y_sort_enabled = true
+
+[node name="Stone1" parent="World/Stones" instance=ExtResource("13_prop")]
+position = Vector2(120, 300)
+kind = 0
+stone_shape = 1
+prompt_text = "Cargar"
+
+[node name="Stone2" parent="World/Stones" instance=ExtResource("13_prop")]
+position = Vector2(200, 470)
+kind = 0
+stone_shape = 0
+prompt_text = "Cargar"
+
+[node name="Stone3" parent="World/Stones" instance=ExtResource("13_prop")]
+position = Vector2(330, 390)
+kind = 0
+stone_shape = 2
+prompt_text = "Cargar"
+
+[node name="Stone4" parent="World/Stones" instance=ExtResource("13_prop")]
+position = Vector2(640, 460)
+kind = 0
+stone_shape = 0
+prompt_text = "Cargar"
+
+[node name="Stone5" parent="World/Stones" instance=ExtResource("13_prop")]
+position = Vector2(790, 330)
+kind = 0
+stone_shape = 2
+prompt_text = "Cargar"
+
+[node name="Stone6" parent="World/Stones" instance=ExtResource("13_prop")]
+position = Vector2(880, 470)
+kind = 0
+stone_shape = 1
+prompt_text = "Cargar"
+
+[node name="Hud" parent="." instance=ExtResource("14_hud")]
+
+[node name="DialogueBox" parent="." instance=ExtResource("15_dialogue_box")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("16_pause_menu")]

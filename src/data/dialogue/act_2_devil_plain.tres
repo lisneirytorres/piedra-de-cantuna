@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3]
+
+[ext_resource type="Script" path="res://src/dialogue/dialogue_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"act_2_devil_plain"
+speakers = PackedStringArray("El Diablo", "Cantuña")
+lines = PackedStringArray("Trato hecho. Tu alma ya huele a mía.", "(Si la obra queda incompleta, el diablo no habrá cumplido. Una piedra... solo una.)")

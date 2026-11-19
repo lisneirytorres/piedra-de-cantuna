@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3]
+
+[ext_resource type="Script" path="res://src/dialogue/dialogue_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"act_1_worker_thanks"
+speakers = PackedStringArray("Don Mateo", "Don Mateo", "Cantuña")
+lines = PackedStringArray("¡Mi cincel! Dios te lo pague, Cantuña.", "Toma esta honda de mi abuelo. Dicen que espanta a los malos espíritus.", "Gracias, Mateo. La llevaré conmigo.")
+finish_flag = &"helped_worker"

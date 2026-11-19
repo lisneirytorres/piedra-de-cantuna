@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[ext_resource type="Resource" path="res://src/data/sfx/dialogue_line.tres" id="1_dialogue_lin"]
+[ext_resource type="Script" path="res://src/dialogue/dialogue_box.gd" id="2_dialogue_box"]
+
+[node name="DialogueBox" type="CanvasLayer"]
+script = ExtResource("2_dialogue_box")
+layer = 50
+line_sound = ExtResource("1_dialogue_lin")

@@ -1,0 +1,139 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/levels/act_3_night/act_3_night.gd" id="1_act_3_night"]
+[ext_resource type="Resource" path="res://src/data/dialogue/act_3_narrator_intro.tres" id="2_act_3_narrat"]
+[ext_resource type="Resource" path="res://src/data/music/night.tres" id="3_night"]
+[ext_resource type="Resource" path="res://src/data/night/night_config.tres" id="4_night_config"]
+[ext_resource type="PackedScene" path="res://src/actors/enemies/foreman.tscn" id="5_foreman"]
+[ext_resource type="PackedScene" path="res://src/actors/pickups/xp_gem.tscn" id="6_xp_gem"]
+[ext_resource type="Resource" path="res://src/data/upgrades/sharp_stones.tres" id="7_sharp_stones"]
+[ext_resource type="Resource" path="res://src/data/upgrades/quick_hands.tres" id="8_quick_hands"]
+[ext_resource type="Resource" path="res://src/data/upgrades/strong_back.tres" id="9_strong_back"]
+[ext_resource type="Resource" path="res://src/data/upgrades/light_feet.tres" id="10_light_feet"]
+[ext_resource type="Resource" path="res://src/data/upgrades/second_wind.tres" id="11_second_wind"]
+[ext_resource type="Resource" path="res://src/data/upgrades/extra_stone.tres" id="12_extra_stone"]
+[ext_resource type="Resource" path="res://src/data/upgrades/keen_eye.tres" id="13_keen_eye"]
+[ext_resource type="Resource" path="res://src/data/upgrades/sling.tres" id="14_sling"]
+[ext_resource type="Resource" path="res://src/data/dialogue/act_3_narrator_intro_plain.tres" id="15_act_3_narrat"]
+[ext_resource type="Resource" path="res://src/data/dialogue/act_3_foreman_stone_ready.tres" id="16_act_3_forema"]
+[ext_resource type="Resource" path="res://src/data/dialogue/act_3_cantuna_stone_taken.tres" id="17_act_3_cantun"]
+[ext_resource type="Resource" path="res://src/data/dialogue/act_3_cantuna_wrong_hideout.tres" id="18_act_3_cantun"]
+[ext_resource type="Resource" path="res://src/data/dialogue/act_3_cantuna_stone_hidden.tres" id="19_act_3_cantun"]
+[ext_resource type="Resource" path="res://src/data/dialogue/act_3_devil_dawn.tres" id="20_act_3_devil_"]
+[ext_resource type="Resource" path="res://src/data/dialogue/act_3_devil_dawn_failed.tres" id="21_act_3_devil_"]
+[ext_resource type="Resource" path="res://src/data/dialogue/act_3_narrator_fallen.tres" id="22_act_3_narrat"]
+[ext_resource type="Script" path="res://src/components/town_backdrop.gd" id="23_town_backdro"]
+[ext_resource type="PackedScene" path="res://src/actors/player/player.tscn" id="24_player"]
+[ext_resource type="Script" path="res://src/levels/act_3_night/enemy_spawner.gd" id="25_enemy_spawne"]
+[ext_resource type="PackedScene" path="res://src/actors/enemies/imp.tscn" id="26_imp"]
+[ext_resource type="PackedScene" path="res://src/actors/props/prop.tscn" id="27_prop"]
+[ext_resource type="Script" path="res://src/levels/act_3_night/night_clock.gd" id="28_night_clock"]
+[ext_resource type="PackedScene" path="res://src/ui/upgrade_menu/upgrade_menu.tscn" id="29_upgrade_menu"]
+[ext_resource type="PackedScene" path="res://src/ui/hud/hud.tscn" id="30_hud"]
+[ext_resource type="PackedScene" path="res://src/dialogue/dialogue_box.tscn" id="31_dialogue_box"]
+[ext_resource type="PackedScene" path="res://src/ui/pause_menu/pause_menu.tscn" id="32_pause_menu"]
+
+[node name="Act3Night" type="Node2D" node_paths=PackedStringArray("player", "hud", "clock", "spawner", "pickups_root", "upgrade_menu", "last_stone", "true_hideout", "decoy_hideouts")]
+script = ExtResource("1_act_3_night")
+bounds = Rect2(12, 140, 936, 390)
+player = NodePath("World/Player")
+hud = NodePath("Hud")
+intro_dialogue = ExtResource("2_act_3_narrat")
+music = ExtResource("3_night")
+next_scene = "res://src/levels/epilogue/epilogue.tscn"
+config = ExtResource("4_night_config")
+clock = NodePath("NightClock")
+spawner = NodePath("World/EnemySpawner")
+pickups_root = NodePath("World/Pickups")
+upgrade_menu = NodePath("UpgradeMenu")
+last_stone = NodePath("World/LastStone")
+true_hideout = NodePath("World/LooseSlab")
+decoy_hideouts = [NodePath("World/StallCrate"), NodePath("World/ChurchCorner"), NodePath("World/Drain")]
+foreman_scene = ExtResource("5_foreman")
+gem_scene = ExtResource("6_xp_gem")
+upgrades = [ExtResource("7_sharp_stones"), ExtResource("8_quick_hands"), ExtResource("9_strong_back"), ExtResource("10_light_feet"), ExtResource("11_second_wind"), ExtResource("12_extra_stone"), ExtResource("13_keen_eye")]
+sling_upgrade = ExtResource("14_sling")
+intro_plain = ExtResource("15_act_3_narrat")
+stone_ready = ExtResource("16_act_3_forema")
+stone_taken = ExtResource("17_act_3_cantun")
+wrong_hideout = ExtResource("18_act_3_cantun")
+stone_hidden = ExtResource("19_act_3_cantun")
+devil_dawn = ExtResource("20_act_3_devil_")
+dawn_failed = ExtResource("21_act_3_devil_")
+fallen = ExtResource("22_act_3_narrat")
+objective_survive = "Resiste mientras los diablillos construyen"
+objective_steal = "¡Roba la última piedra frente a la iglesia!"
+objective_hide = "Esconde la piedra: busca un escondite (?)"
+objective_hide_known = "Esconde la piedra bajo la losa floja de la pileta"
+objective_wait = "Resiste hasta el amanecer"
+foreman_name = "Capataz de los diablillos"
+sling_message = "La honda de don Mateo: +1 proyectil"
+
+[node name="Backdrop" type="Node2D" parent="."]
+script = ExtResource("23_town_backdro")
+stall_positions = PackedVector2Array(30, 222, 30, 300, 100, 222)
+lantern_positions = PackedVector2Array(300, 160, 660, 160, 250, 480, 710, 480)
+floor_color = Color(0.2314, 0.2275, 0.2902, 1)
+floor_accent_color = Color(0.2902, 0.2824, 0.3451, 1)
+mortar_color = Color(0.1647, 0.1608, 0.2118, 1)
+church_color = Color(0.4314, 0.4078, 0.502, 1)
+church_shadow_color = Color(0.3098, 0.2902, 0.3765, 1)
+window_color = Color(0.08235, 0.07059, 0.1098, 1)
+water_color = Color(0.1725, 0.2902, 0.4, 1)
+lantern_glow_color = Color(1, 0.8, 0.4, 0.14)
+
+[node name="World" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="World" instance=ExtResource("24_player")]
+position = Vector2(480, 460)
+is_combat_enabled = true
+
+[node name="EnemySpawner" type="Node2D" parent="World"]
+y_sort_enabled = true
+script = ExtResource("25_enemy_spawne")
+imp_scene = ExtResource("26_imp")
+
+[node name="Pickups" type="Node2D" parent="World"]
+
+[node name="LastStone" parent="World" instance=ExtResource("27_prop")]
+position = Vector2(480, 168)
+kind = 0
+stone_shape = 0
+prompt_text = "Robar"
+
+[node name="LooseSlab" parent="World" instance=ExtResource("27_prop")]
+position = Vector2(522, 378)
+kind = 2
+stone_shape = 0
+prompt_text = "Esconder"
+
+[node name="StallCrate" parent="World" instance=ExtResource("27_prop")]
+position = Vector2(95, 470)
+kind = 2
+stone_shape = 0
+prompt_text = "Esconder"
+
+[node name="ChurchCorner" parent="World" instance=ExtResource("27_prop")]
+position = Vector2(860, 180)
+kind = 2
+stone_shape = 0
+prompt_text = "Esconder"
+
+[node name="Drain" parent="World" instance=ExtResource("27_prop")]
+position = Vector2(250, 300)
+kind = 2
+stone_shape = 0
+prompt_text = "Esconder"
+
+[node name="NightClock" type="Node" parent="."]
+script = ExtResource("28_night_clock")
+
+[node name="UpgradeMenu" parent="." instance=ExtResource("29_upgrade_menu")]
+
+[node name="Hud" parent="." instance=ExtResource("30_hud")]
+is_night_mode = true
+
+[node name="DialogueBox" parent="." instance=ExtResource("31_dialogue_box")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("32_pause_menu")]

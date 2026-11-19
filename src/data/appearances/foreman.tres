@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FigureAppearance" format=3]
+
+[ext_resource type="Script" path="res://src/components/figure_appearance.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+skin_color = Color(0.5412, 0.1098, 0.1647, 1)
+hair_color = Color(0.2275, 0.04706, 0.07059, 1)
+body_color = Color(0.2902, 0.1647, 0.1098, 1)
+legs_color = Color(0.1647, 0.08627, 0.06275, 1)
+headwear = 3
+headwear_color = Color(0.949, 0.8941, 0.7686, 1)
+eye_color = Color(1, 0.549, 0.2471, 1)

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EpilogueData" format=3]
+
+[ext_resource type="Script" path="res://src/levels/epilogue/epilogue_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+paragraphs = PackedStringArray("Al primer canto del gallo, los diablillos gritaron victoria... y el grito se quebró en el aire.", "En el atrio de San Francisco faltaba una piedra. Una sola.", "«Si falta una sola piedra, el trato se anula», recordó Cantuña. El diablo, atado a su palabra, se hundió en la tierra entre maldiciones.", "El diablo exigió su pago, pero Cantuña señaló el hueco: la obra no estaba completa. Furioso, el diablo no pudo cobrar lo que no había ganado.", "Don Mateo contó por años que la honda de su abuelo ayudó a Cantuña en la noche más larga de Quito.", "Juanito nunca dijo a nadie qué guardaba bajo la losa de la pileta. Ni siquiera a los frailes.", "Los frailes recibieron su atrio a tiempo, y Cantuña conservó su alma.", "Dicen que aún hoy, en el atrio de San Francisco, falta una piedra. Búscala cuando vayas a Quito.")
+conditions = Array[StringName]([&"", &"", &"bargained_pact", &"!bargained_pact", &"helped_worker", &"knows_hideout", &"", &""])

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3]
+
+[ext_resource type="Script" path="res://src/dialogue/dialogue_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"act_1_child_rumor"
+speakers = PackedStringArray("Juanito")
+lines = PackedStringArray("¡Señor Cantuña! ¿Es verdad que el diablo camina por la plaza cuando todos duermen?")
+choices = PackedStringArray("Cuéntame qué has visto.", "Son cuentos de viejas, Juanito.")
+choice_flags = Array[StringName]([&"", &""])

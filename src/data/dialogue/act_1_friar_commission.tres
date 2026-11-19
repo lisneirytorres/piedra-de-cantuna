@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3]
+
+[ext_resource type="Script" path="res://src/dialogue/dialogue_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"act_1_friar_commission"
+speakers = PackedStringArray("Fray Jodoco", "Fray Jodoco", "Cantuña", "Fray Jodoco")
+lines = PackedStringArray("Cantuña, hijo, gracias por venir. El convento necesita un atrio digno de San Francisco.", "Escalinatas, arcos y piedra labrada. Y debe estar listo en seis meses, ni un día más.", "Seis meses es muy poco tiempo, padre... pero acepto. Mi palabra es de piedra.", "Si no cumples, la cárcel será tu pago. La obra está al este, junto al convento.")
+finish_flag = &"met_friar"

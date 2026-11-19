@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MusicTrack" format=3]
+
+[ext_resource type="Script" path="res://src/components/music_track.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+tempo_bpm = 88.0
+melody = PackedInt32Array(62, -1, 65, 67, 69, -1, 67, 65, 62, -1, 60, 62, 65, -1, -1, -1, 62, 65, 67, 69, 72, 69, 67, 65, 64, -1, 62, 60, 62, -1, -1, -1)
+bass = PackedInt32Array(38, 38, 36, 36, 41, 41, 36, 38)
+melody_waveform = 2
+bass_waveform = 1
+melody_volume = 0.2
+bass_volume = 0.1

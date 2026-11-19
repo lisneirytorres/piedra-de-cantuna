@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PlayerStats" format=3]
+
+[ext_resource type="Script" path="res://src/actors/player/player_stats.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+move_speed = 90.0
+carry_speed_multiplier = 0.6
+dash_speed = 260.0
+dash_duration = 0.18
+dash_cooldown = 1.2
+max_health = 100
+attack_damage = 10
+attack_interval = 0.85
+attack_range = 150.0
+projectile_count = 1
+projectile_speed = 230.0

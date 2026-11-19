@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3]
+
+[ext_resource type="Script" path="res://src/dialogue/dialogue_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"act_3_devil_dawn"
+speakers = PackedStringArray("", "El Diablo", "Cantuña", "El Diablo")
+lines = PackedStringArray("Canta el primer gallo. Los diablillos colocan la última hilera... y se detienen.", "¿Qué es esto? ¡Falta una piedra! ¡¿Dónde está la piedra?!", "La obra no está completa. El trato era el trato.", "¡Maldito seas, Cantuña! ¡Esto no se quedará así!")
