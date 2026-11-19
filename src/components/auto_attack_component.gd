@@ -11,6 +11,8 @@ extends Node2D
 @export var target_group: StringName = &"enemies"
 ## Separación angular entre proyectiles cuando se lanzan varios a la vez.
 @export var spread_degrees: float = 14.0
+## Sonido al lanzar (opcional).
+@export var fire_sound: SoundEffect
 
 ## Si es [code]false[/code], no ataca.
 var is_active: bool = false
@@ -63,6 +65,7 @@ func _fire_at(target: Node2D) -> void:
 	if projectile_scene == null:
 		push_error("AutoAttackComponent: falta la escena del proyectil.")
 		return
+	AudioManager.play_effect(fire_sound)
 	var base_direction: Vector2 = global_position.direction_to(target.global_position)
 	var center: float = (projectile_count - 1) * 0.5
 	for i: int in projectile_count:

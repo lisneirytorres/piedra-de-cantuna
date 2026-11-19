@@ -1,6 +1,8 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://src/ui/upgrade_menu/upgrade_menu.gd" id="1_upgrade_menu"]
+[ext_resource type="Resource" path="res://src/data/sfx/level_up.tres" id="1_level_up"]
+[ext_resource type="Script" path="res://src/ui/upgrade_menu/upgrade_menu.gd" id="2_upgrade_menu"]
 
 [node name="UpgradeMenu" type="CanvasLayer"]
-script = ExtResource("1_upgrade_menu")
+script = ExtResource("2_upgrade_menu")
+open_sound = ExtResource("1_level_up")

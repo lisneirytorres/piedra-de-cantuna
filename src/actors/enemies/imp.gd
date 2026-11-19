@@ -9,6 +9,8 @@ signal died(imp: Imp)
 
 ## Experiencia que suelta al morir.
 @export var xp_value: int = 1
+## Sonido al recibir un golpe (opcional).
+@export var hurt_sound: SoundEffect
 
 var target: Node2D
 var speed: float = 40.0
@@ -45,6 +47,7 @@ func setup(chase_target: Node2D, max_health: int, move_speed: float, contact_dam
 func _on_hurtbox_hurt(amount: int) -> void:
 	_health.damage(amount)
 	_figure.flash()
+	AudioManager.play_effect(hurt_sound)
 
 
 func _on_health_died() -> void:

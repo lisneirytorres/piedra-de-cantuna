@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundEffect" format=3]
+
+[ext_resource type="Script" path="res://src/components/sound_effect.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+waveform = 3
+start_frequency = 300.0
+end_frequency = 60.0
+duration = 0.15
+volume = 0.4

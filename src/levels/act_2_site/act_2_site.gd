@@ -12,6 +12,7 @@ extends Level
 ## Contenedor de los huecos del atrio ([Prop] de tipo hueco).
 @export var slots_root: Node2D
 @export var devil: Npc
+@export var place_sound: SoundEffect
 
 @export_group("Diálogos")
 @export var dusk: DialogueData
@@ -81,6 +82,7 @@ func _on_slot_used(slot: Prop) -> void:
 		hud.show_message(message_wrong_shape)
 		return
 	slot.fill()
+	AudioManager.play_effect(place_sound)
 	player.set_carrying(false)
 	_placed_count += 1
 	_update_objective()

@@ -50,6 +50,13 @@ func play_sfx(stream: AudioStream) -> void:
 	player.play()
 
 
+## Reproduce un [SoundEffect] sintetizado. Ignora efectos nulos (sonido opcional).
+func play_effect(effect: SoundEffect) -> void:
+	if effect == null:
+		return
+	play_sfx(effect.get_stream())
+
+
 func _ensure_bus(bus_name: StringName) -> void:
 	if AudioServer.get_bus_index(bus_name) != -1:
 		return

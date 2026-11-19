@@ -11,6 +11,8 @@ signal collected(value: int)
 @export var collect_radius: float = 8.0
 @export var magnet_speed: float = 200.0
 @export var color: Color = Color("7fd8e8")
+## Sonido al recogerla (opcional).
+@export var collect_sound: SoundEffect
 
 ## Experiencia que otorga.
 var value: int = 1
@@ -23,6 +25,7 @@ func _physics_process(delta: float) -> void:
 		return
 	var distance: float = global_position.distance_to(target.global_position)
 	if distance <= collect_radius:
+		AudioManager.play_effect(collect_sound)
 		collected.emit(value)
 		queue_free()
 		return

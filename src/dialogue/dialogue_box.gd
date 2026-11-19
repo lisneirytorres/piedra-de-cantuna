@@ -21,6 +21,8 @@ const CHOICE_ACTIONS: Array[StringName] = [&"select_1", &"select_2", &"select_3"
 @export var continue_hint: String = "E / clic ▸"
 ## Formato de cada decisión: número y texto.
 @export var choice_format: String = "%d. %s"
+## Sonido al mostrar cada línea (opcional).
+@export var line_sound: SoundEffect
 
 var _dialogue: DialogueData
 var _line_index: int = 0
@@ -118,6 +120,7 @@ func _show_line() -> void:
 	_visible_characters = 0.0
 	_text_label.visible_characters = 0
 	_hint_label.show()
+	AudioManager.play_effect(line_sound)
 
 
 func _show_choices() -> void:

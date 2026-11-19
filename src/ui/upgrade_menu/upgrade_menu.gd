@@ -16,6 +16,8 @@ const CHOICE_ACTIONS: Array[StringName] = [&"select_1", &"select_2", &"select_3"
 
 @export var title_text: String = "¡Subiste de nivel! Elige una mejora"
 @export var option_format: String = "%d. %s — %s"
+## Sonido al subir de nivel (opcional).
+@export var open_sound: SoundEffect
 
 var _options: Array[UpgradeData] = []
 var _root: ColorRect
@@ -57,6 +59,7 @@ func open(options: Array[UpgradeData]) -> void:
 		button.pressed.connect(_choose.bind(i))
 		_options_box.add_child(button)
 	_root.show()
+	AudioManager.play_effect(open_sound)
 	(_options_box.get_child(0) as Button).call_deferred(&"grab_focus")
 
 

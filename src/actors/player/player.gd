@@ -21,6 +21,8 @@ const STATE_LOCKED: StringName = &"Locked"
 @export var stats: PlayerStats
 ## Activa la vida y el ataque automático (solo en la noche).
 @export var is_combat_enabled: bool = false
+## Sonido al recibir daño (opcional).
+@export var hurt_sound: SoundEffect
 
 ## [code]true[/code] mientras carga una piedra: va más lento y no puede hacer dash.
 var is_carrying: bool = false
@@ -219,3 +221,4 @@ func _on_health_died() -> void:
 func _on_hurtbox_hurt(amount: int) -> void:
 	_health.damage(amount)
 	_figure.flash()
+	AudioManager.play_effect(hurt_sound)
