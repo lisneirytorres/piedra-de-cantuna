@@ -35,6 +35,18 @@ func get_stream() -> AudioStreamWAV:
 	return _stream
 
 
+## Valor de la onda [param wave] en la fase [param phase] (de 0 a 1), entre -1 y 1.
+static func sample_wave(wave: Waveform, phase: float, rng: RandomNumberGenerator) -> float:
+	match wave:
+		Waveform.SQUARE:
+			return 1.0 if phase < 0.5 else -1.0
+		Waveform.TRIANGLE:
+			return 4.0 * absf(phase - 0.5) - 1.0
+		Waveform.SINE:
+			return sin(phase * TAU)
+	return rng.randf_range(-1.0, 1.0)
+
+
 func _build_stream() -> AudioStreamWAV:
 	var sample_count: int = maxi(int(duration * MIX_RATE), 1)
 	var data := PackedByteArray()
@@ -46,7 +58,7 @@ func _build_stream() -> AudioStreamWAV:
 		var progress: float = float(i) / float(sample_count)
 		phase = fmod(phase + lerpf(start_frequency, end_frequency, progress) / MIX_RATE, 1.0)
 		var envelope: float = pow(1.0 - progress, 2.0)
-		var value: float = _sample_wave(phase, rng) * envelope * volume
+		var value: float = sample_wave(waveform, phase, rng) * envelope * volume
 		data.encode_s16(i * BYTES_PER_SAMPLE, int(value * MAX_SAMPLE))
 	var stream := AudioStreamWAV.new()
 	stream.format = AudioStreamWAV.FORMAT_16_BITS
@@ -54,14 +66,3 @@ func _build_stream() -> AudioStreamWAV:
 	stream.stereo = false
 	stream.data = data
 	return stream
-
-
-func _sample_wave(phase: float, rng: RandomNumberGenerator) -> float:
-	match waveform:
-		Waveform.SQUARE:
-			return 1.0 if phase < 0.5 else -1.0
-		Waveform.TRIANGLE:
-			return 4.0 * absf(phase - 0.5) - 1.0
-		Waveform.SINE:
-			return sin(phase * TAU)
-	return rng.randf_range(-1.0, 1.0)

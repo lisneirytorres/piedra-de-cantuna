@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://src/levels/epilogue/epilogue.gd" id="1_epilogue"]
 [ext_resource type="Resource" path="res://src/data/epilogue/epilogue.tres" id="2_epilogue"]
+[ext_resource type="Resource" path="res://src/data/music/plaza.tres" id="3_plaza"]
 
 [node name="Epilogue" type="Control"]
 script = ExtResource("1_epilogue")
@@ -11,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 epilogue = ExtResource("2_epilogue")
+music = ExtResource("3_plaza")
 credits_scene = "res://src/ui/credits/credits.tscn"
 
 [node name="Background" type="ColorRect" parent="."]

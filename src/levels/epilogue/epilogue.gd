@@ -9,6 +9,7 @@ const FADE_DURATION: float = 0.6
 const TEXT_WIDTH: float = 460.0
 
 @export var epilogue: EpilogueData
+@export var music: MusicTrack
 @export_file("*.tscn") var credits_scene: String
 @export var hint_text: String = "E / clic ▸"
 
@@ -20,6 +21,7 @@ var _tween: Tween
 
 func _ready() -> void:
 	_build_layout()
+	AudioManager.play_track(music)
 	if epilogue == null or not epilogue.is_valid():
 		push_error("Epilogue: los datos del epílogo faltan o son incoherentes.")
 		return

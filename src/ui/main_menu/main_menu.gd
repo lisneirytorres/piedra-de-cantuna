@@ -16,7 +16,7 @@ const BUTTON_WIDTH: float = 150.0
 @export var controls_text: String = ""
 @export_file("*.tscn") var first_scene: String
 @export_file("*.tscn") var credits_scene: String
-@export var music: AudioStream
+@export var music: MusicTrack
 
 var _play_button: Button
 
@@ -24,6 +24,8 @@ var _play_button: Button
 func _ready() -> void:
 	_build_layout()
 	_play_button.grab_focus()
+	# En web, el navegador retiene el audio hasta la primera interacción (el clic en "Jugar").
+	AudioManager.play_track(music)
 
 
 func _build_layout() -> void:
@@ -58,8 +60,6 @@ func _make_menu_button(text: String, callback: Callable) -> Button:
 
 func _on_play_button_pressed() -> void:
 	GameState.reset()
-	if music != null:
-		AudioManager.play_music(music)
 	SceneManager.change_scene(first_scene)
 
 

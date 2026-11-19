@@ -1,7 +1,8 @@
 [gd_scene format=3]
 
 [ext_resource type="Script" path="res://src/ui/main_menu/main_menu.gd" id="1_main_menu"]
-[ext_resource type="Script" path="res://src/components/town_backdrop.gd" id="2_town_backdro"]
+[ext_resource type="Resource" path="res://src/data/music/site.tres" id="2_site"]
+[ext_resource type="Script" path="res://src/components/town_backdrop.gd" id="3_town_backdro"]
 
 [node name="MainMenu" type="Control"]
 script = ExtResource("1_main_menu")
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+music = ExtResource("2_site")
 subtitle_text = "Una leyenda de Quito colonial · PyWeekend 19 · ESPOL"
 controls_text = "WASD / flechas: mover · E: interactuar · Espacio: esquivar · Esc: pausa"
 first_scene = "res://src/levels/act_1_plaza/act_1_plaza.tscn"
@@ -17,7 +19,7 @@ credits_scene = "res://src/ui/credits/credits.tscn"
 
 [node name="Backdrop" type="Node2D" parent="."]
 position = Vector2(-160, -90)
-script = ExtResource("2_town_backdro")
+script = ExtResource("3_town_backdro")
 stall_positions = PackedVector2Array(30, 222, 30, 300, 100, 222)
 lantern_positions = PackedVector2Array(300, 160, 660, 160, 250, 480, 710, 480)
 floor_color = Color(0.2314, 0.2275, 0.2902, 1)

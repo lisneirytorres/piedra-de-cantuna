@@ -10,6 +10,7 @@ const FAST_MULTIPLIER: float = 4.0
 const LINE_SEPARATION: int = 4
 
 @export var credits: CreditsData
+@export var music: MusicTrack
 @export_file("*.tscn") var main_menu_scene: String
 @export var hint_text: String = "Mantén E para acelerar · Esc para salir"
 
@@ -19,6 +20,7 @@ var _has_finished: bool = false
 
 func _ready() -> void:
 	_build_layout()
+	AudioManager.play_track(music)
 
 
 func _process(delta: float) -> void:

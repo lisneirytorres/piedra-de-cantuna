@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://src/ui/credits/credits.gd" id="1_credits"]
 [ext_resource type="Resource" path="res://src/data/credits/credits.tres" id="2_credits"]
+[ext_resource type="Resource" path="res://src/data/music/plaza.tres" id="3_plaza"]
 
 [node name="Credits" type="Control"]
 script = ExtResource("1_credits")
@@ -11,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 credits = ExtResource("2_credits")
+music = ExtResource("3_plaza")
 main_menu_scene = "res://src/ui/main_menu/main_menu.tscn"
 
 [node name="Background" type="ColorRect" parent="."]

@@ -10,7 +10,7 @@ extends Node2D
 @export var bounds: Rect2 = Rect2(16, 140, 928, 384)
 @export var player: Player
 @export var hud: Hud
-@export var music: AudioStream
+@export var music: MusicTrack
 ## Conversación que se reproduce al entrar al nivel (opcional).
 @export var intro_dialogue: DialogueData
 
@@ -19,8 +19,7 @@ func _ready() -> void:
 	assert(player != null and hud != null, "Level: faltan el jugador o el HUD en '%s'." % name)
 	player.set_bounds(bounds)
 	Events.dialogue_finished.connect(_on_dialogue_finished)
-	if music != null:
-		AudioManager.play_music(music)
+	AudioManager.play_track(music)
 	if intro_dialogue != null:
 		play_dialogue.call_deferred(intro_dialogue)
 

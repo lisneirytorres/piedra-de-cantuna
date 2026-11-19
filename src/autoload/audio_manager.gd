@@ -35,6 +35,13 @@ func play_music(stream: AudioStream) -> void:
 	_music_player.play()
 
 
+## Reproduce una [MusicTrack] sintetizada como música de fondo. Ignora pistas nulas.
+func play_track(track: MusicTrack) -> void:
+	if track == null:
+		return
+	play_music(track.get_stream())
+
+
 ## Detiene la música de fondo.
 func stop_music() -> void:
 	_music_player.stop()
