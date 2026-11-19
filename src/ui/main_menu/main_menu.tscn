@@ -1,0 +1,39 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/ui/main_menu/main_menu.gd" id="1_main_menu"]
+[ext_resource type="Script" path="res://src/components/town_backdrop.gd" id="2_town_backdro"]
+
+[node name="MainMenu" type="Control"]
+script = ExtResource("1_main_menu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+subtitle_text = "Una leyenda de Quito colonial · PyWeekend 19 · ESPOL"
+controls_text = "WASD / flechas: mover · E: interactuar · Espacio: esquivar · Esc: pausa"
+first_scene = "res://src/levels/act_1_plaza/act_1_plaza.tscn"
+credits_scene = "res://src/ui/credits/credits.tscn"
+
+[node name="Backdrop" type="Node2D" parent="."]
+position = Vector2(-160, -90)
+script = ExtResource("2_town_backdro")
+stall_positions = PackedVector2Array(30, 222, 30, 300, 100, 222)
+lantern_positions = PackedVector2Array(300, 160, 660, 160, 250, 480, 710, 480)
+floor_color = Color(0.2314, 0.2275, 0.2902, 1)
+floor_accent_color = Color(0.2902, 0.2824, 0.3451, 1)
+mortar_color = Color(0.1647, 0.1608, 0.2118, 1)
+church_color = Color(0.4314, 0.4078, 0.502, 1)
+church_shadow_color = Color(0.3098, 0.2902, 0.3765, 1)
+window_color = Color(0.08235, 0.07059, 0.1098, 1)
+water_color = Color(0.1725, 0.2902, 0.4, 1)
+lantern_glow_color = Color(1, 0.8, 0.4, 0.14)
+
+[node name="Dim" type="ColorRect" parent="."]
+color = Color(0.03, 0.02, 0.06, 0.55)
+mouse_filter = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

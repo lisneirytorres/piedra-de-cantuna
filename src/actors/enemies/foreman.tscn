@@ -1,0 +1,64 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/actors/enemies/foreman.gd" id="1_foreman"]
+[ext_resource type="Script" path="res://src/components/pixel_figure.gd" id="2_pixel_figure"]
+[ext_resource type="Resource" path="res://src/data/appearances/foreman.tres" id="3_foreman"]
+[ext_resource type="Script" path="res://src/components/health_component.gd" id="4_health_compo"]
+[ext_resource type="Script" path="res://src/components/hurtbox_component.gd" id="5_hurtbox_comp"]
+[ext_resource type="Script" path="res://src/components/hitbox_component.gd" id="6_hitbox_compo"]
+[ext_resource type="Script" path="res://src/components/state_machine.gd" id="7_state_machin"]
+[ext_resource type="Script" path="res://src/actors/enemies/states/foreman_chase.gd" id="8_foreman_chas"]
+[ext_resource type="Script" path="res://src/actors/enemies/states/foreman_windup.gd" id="9_foreman_wind"]
+[ext_resource type="Script" path="res://src/actors/enemies/states/foreman_charge.gd" id="10_foreman_char"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2"]
+radius = 10.0
+
+[node name="Foreman" type="Node2D" groups=["enemies"]]
+script = ExtResource("1_foreman")
+
+[node name="Figure" type="Node2D" parent="."]
+scale = Vector2(1.6, 1.6)
+script = ExtResource("2_pixel_figure")
+appearance = ExtResource("3_foreman")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("4_health_compo")
+max_health = 260
+
+[node name="HurtboxComponent" type="Area2D" parent="."]
+script = ExtResource("5_hurtbox_comp")
+position = Vector2(0, -14)
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="Shape" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("CircleShape2D_1")
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+script = ExtResource("6_hitbox_compo")
+position = Vector2(0, -12)
+collision_layer = 32
+collision_mask = 0
+monitoring = false
+damage = 15
+
+[node name="Shape" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_2")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("7_state_machin")
+initial_state = NodePath("Chase")
+
+[node name="Chase" type="Node" parent="StateMachine"]
+script = ExtResource("8_foreman_chas")
+
+[node name="Windup" type="Node" parent="StateMachine"]
+script = ExtResource("9_foreman_wind")
+
+[node name="Charge" type="Node" parent="StateMachine"]
+script = ExtResource("10_foreman_char")
