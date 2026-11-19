@@ -42,7 +42,7 @@ El juego dura de 10 a 15 minutos y tiene tres actos:
 
 ## Créditos y licencias
 
-- Arte, guion y programación: originales del equipo. El arte se dibuja por código.
+- Arte, música, sonido, guion y programación: originales del equipo. El arte y el audio se generan por código.
 - Godot Engine (MIT) y GUT (MIT, solo para pruebas).
 - Agradecimientos: ESPOL y PyWeekend 19na. Edición.
 
