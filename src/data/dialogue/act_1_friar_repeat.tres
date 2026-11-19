@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3]
+
+[ext_resource type="Script" path="res://src/dialogue/dialogue_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"act_1_friar_repeat"
+speakers = PackedStringArray("Fray Jodoco")
+lines = PackedStringArray("La obra te espera al este, Cantuña. Que Dios guíe tus manos.")

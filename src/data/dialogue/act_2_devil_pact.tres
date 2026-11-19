@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3]
+
+[ext_resource type="Script" path="res://src/dialogue/dialogue_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"act_2_devil_pact"
+speakers = PackedStringArray("El Diablo", "El Diablo", "El Diablo")
+lines = PackedStringArray("Buenas noches, maestro Cantuña. Te noto... preocupado.", "Mis diablillos pueden terminar tu atrio esta misma noche. Cada piedra, cada arco.", "A cambio solo pido una cosita: tu alma. Si al amanecer la obra está completa, serás mío.")
+choices = PackedStringArray("Acepto. Pero si falta UNA sola piedra, el trato se anula.", "Acepto... no tengo otra salida.")
+choice_flags = Array[StringName]([&"bargained_pact", &""])

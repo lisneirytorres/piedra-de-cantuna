@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3]
+
+[ext_resource type="Script" path="res://src/dialogue/dialogue_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"act_1_vendor_market"
+speakers = PackedStringArray("Doña Rosa", "Doña Rosa", "Cantuña")
+lines = PackedStringArray("¡Mote, choclos y habas calientitas! ¿Un poquito, Cantuña?", "Dicen que el atrio de los frailes es obra para gigantes. Que no te pidan más de lo que tienes.", "Solo me piden trabajo, doña Rosa. Y trabajo me sobra.")

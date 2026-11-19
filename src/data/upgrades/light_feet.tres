@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3]
+
+[ext_resource type="Script" path="res://src/levels/act_3_night/upgrade_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"light_feet"
+title = "Pies de chasqui"
+description = "+12 de velocidad"
+stat = 0
+amount = 12.0

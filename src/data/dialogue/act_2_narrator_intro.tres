@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3]
+
+[ext_resource type="Script" path="res://src/dialogue/dialogue_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"act_2_narrator_intro"
+speakers = PackedStringArray("", "Cantuña", "")
+lines = PackedStringArray("Pasan los meses. La obra avanza lenta: cada piedra pesa como una montaña.", "Mañana vence el plazo. Si coloco estas seis piedras, quizá... quizá alcance.", "Lleva cada piedra al hueco del atrio que tenga su misma forma. Cargando vas más lento.")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3]
+
+[ext_resource type="Script" path="res://src/dialogue/dialogue_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"act_1_worker_request"
+speakers = PackedStringArray("Don Mateo", "Don Mateo")
+lines = PackedStringArray("¡Cantuña! Perdí mi cincel de hierro. Sin él no puedo labrar ni una piedra.", "Creo que se me cayó cerca de los puestos del mercado. ¿Me ayudarías a buscarlo?")
+choices = PackedStringArray("Claro, lo buscaré.", "Lo siento, no tengo tiempo.")
+choice_flags = Array[StringName]([&"accepted_worker_quest", &""])

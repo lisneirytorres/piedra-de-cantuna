@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="NightConfig" format=3]
+
+[ext_resource type="Script" path="res://src/levels/act_3_night/night_config.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+duration = 210.0
+stone_appear_time = 105.0
+max_work_progress = 0.99
+spawn_interval_start = 1.2
+spawn_interval_end = 0.3
+max_enemies = 70
+spawn_distance = 250.0
+imp_health_start = 18
+imp_health_end = 55
+imp_speed_start = 36.0
+imp_speed_end = 60.0
+imp_damage = 7
+xp_base = 4
+xp_growth = 3
+foreman_health = 260
+upgrade_choices = 3

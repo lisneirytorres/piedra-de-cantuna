@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CreditsData" format=3]
+
+[ext_resource type="Script" path="res://src/ui/credits/credits_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+lines = PackedStringArray("# La Piedra de Cantuña", "Un RPG basado en la leyenda quiteña de Cantuña", "", "# Equipo", "Lisneiry Torres (@lisneirytorres)", "Diseño, programación, arte y narrativa", "", "# Arte", "Personajes y escenarios dibujados por código (originales)", "", "# Leyenda adaptada", "Cantuña y el atrio de San Francisco (Quito, Ecuador)", "Tradición oral quiteña del siglo XVI", "", "# Herramientas", "Godot Engine 4.7 (licencia MIT)", "GUT - Godot Unit Test (licencia MIT)", "", "# Agradecimientos", "ESPOL - Escuela Superior Politécnica del Litoral", "PyWeekend 19na. Edición", "", "Gracias por jugar")
